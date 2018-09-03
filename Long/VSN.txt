@@ -1,0 +1,52 @@
+
+//June Long Vision 
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{ios_base::sync_with_stdio(NULL);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	long t;
+	cin>>t;
+	while(t--)
+	{
+     long double x1,x2,x3,y1,y2,y3,z1,z2,z3,d1,d2,d3,r;
+     long double Aa,Ab,Ac,Ba,Bb,Ba_final,Bb_final,Bc_final,C,Ta,Tb,Tc,t1,t2,Answer,D;
+     cin>>x1>>y1>>z1>>x2>>y2>>z2>>d1>>d2>>d3>>x3>>y3>>z3>>r;
+     Aa=d1*d1+d2*d2+d3*d3;
+     Ab=2*d1*(x2-x1)+2*d2*(y2-y1)+2*d3*(z2-z1);
+     Ac=x1*x1+x2*x2+y1*y1+y2*y2+z1*z1+z2*z2-2*(x2*x1+y2*y1+z2*z1);
+     //cout<<Aa<<" "<<Ab<<" "<<Ac<<endl;
+    Ba=2*(d1*(x1-x3)+d2*(y1-y3)+d3*(z1-z3));
+    Bb=2*(x1*x3+x2*x1+y1*y3+y2*y1+z1*z3+z2*z1-(y2*y3)-(x2*x3)-(z2*z3)-(x1*x1)-(y1*y1)-(z1*z1));
+    //cout<<Ba<<" "<<Bb;
+    Ba_final=Ba*Ba;
+    Bb_final=2*Ba*Bb;
+    Bc_final=Bb*Bb;
+    //cout<<Ba_final<<" "<<Bb_final<<" "<<Bc_final;
+    C=x3*x3+y3*y3+z3*z3+x1*x1+y1*y1+z1*z1-2*(x3*x1+y3*y1+z3*z1)-r*r;
+    //cout<<C;
+   Aa=4*Aa*C;
+    Ab=4*Ab*C;
+     Ac=4*Ac*C;
+     //cout<<Aa<<" "<<Ba_final<<endl;
+    Ta=Aa-Ba_final;
+    Tb=Ab-Bb_final; 
+    Tc=Ac-Bc_final;
+    //cout<<Ta<<" "<<Tb<<" "<<Tc<<endl;
+    D=Tb*Tb-4*Ta*Tc;
+    t1=(-Tb+sqrt(D))/(2*Ta);
+    t2=(-Tb-sqrt(D))/(2*Ta);
+    if(Ta==0)
+    Answer=-Tc/Tb;
+    else if(t1>0 and t2<=0)
+    Answer=t1;
+    else if(t2>0 and t1<=0)
+    Answer=t2;
+    else if(t2>0 and t1>0)
+    Answer=min(t1,t2);
+    
+    printf("%0.7Lf\n",Answer);
+    
+    }
+}
