@@ -1,0 +1,26 @@
+for i in range(int(input())):
+    a,b=map(int,input().split(" "))
+    if(a==b):
+        print("0")
+    elif(b==0 or b==1 and a!=0):
+        print("-1")
+    else:
+        c = int(b)
+        b = b - 1
+        s = ""
+        s1 = ""
+        s2 = "0"
+        count1,count2= 0,0
+        s = bin(a)
+        s = s.replace("0b", "")
+        s1 = bin(b)
+        s1 = s1.replace("0b", "")
+        count1=s.count("1")
+        count2=s1.count("1")
+        #print(count1,count2)
+        if(count1==count2):
+            print("1")
+        elif(count1<count2):
+            print(count2-count1+1)
+        else:
+            print("2")
